@@ -541,7 +541,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 builder.include(patient_marker.getPosition());
                 //Modify this to include more markers in future
                 arrayMarker.add(1, patient_marker);
-                textView.append("\n"+locationArray[counterLocation] + " at " + gmtTime);
+                textView.append("\n\n"+locationArray[counterLocation] + " at " + gmtTime);
             }
             else if (counterLocation == 1) {
                 Double latitude = 1.334937;
@@ -553,7 +553,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 builder.include(patient_marker.getPosition());
                 //Modify this to include more markers in future
                 arrayMarker.add(2, patient_marker);
-                textView.append("\n"+locationArray[counterLocation] + " at " + gmtTime);
+                textView.append("\n\n"+locationArray[counterLocation] + " at " + gmtTime);
+            }
+
+            else if (counterLocation == 2){
+                Double latitude = 1.337760;
+                Double longitude = 103.736835;
+                LatLng patientLocation = new LatLng(latitude, longitude);
+                String address = getAddressFromCoordinates(latitude, longitude);
+                patient_marker = mMap.addMarker(new MarkerOptions().position(patientLocation).title("Patient's location 3:").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+                patient_marker.setSnippet(address);
+                builder.include(patient_marker.getPosition());
+                //Modify this to include more markers in future
+                arrayMarker.add(2, patient_marker);
+                textView.append("\n\n"+locationArray[counterLocation] + " at " + gmtTime);
             }
 
         }
