@@ -50,8 +50,8 @@ products from Adafruit!
 #define PN532_IRQ   (2)
 #define PN532_RESET (3)  // Not connected by default on the NFC Shield
 
-#define SP2_RX 10
-#define SP2_TX 11
+#define SP2_RX 9
+#define SP2_TX 10
 
 SoftwareSerial Serial2 (SP2_RX, SP2_TX);
 

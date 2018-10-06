@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout android:layout_width="wrap_content"
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation = "vertical">
@@ -11,7 +12,8 @@
         android:layout_height="130dp"
         android:layout_weight="1"
         android:scrollbars="vertical"
-        android:text="" />
+        android:text=""
+        android:background = "@android:color/white"/>
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:map="http://schemas.android.com/apk/res-auto"
@@ -27,6 +29,8 @@
         android:layout_width="match_parent"
         android:layout_height="61dp"
         android:layout_weight="1"
-        android:text="TRACK" />
+        android:text="ALERT"
+        android:background="@android:color/holo_blue_bright"/>
+
 
 </LinearLayout>
