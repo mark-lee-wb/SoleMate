@@ -37,6 +37,7 @@ products from Adafruit!
 #include <Wire.h>
 #include <SPI.h>
 #include <Adafruit_PN532.h>
+#include <SoftwareSerial.h>
 
 // If using the breakout with SPI, define the pins for SPI communication.
 #define PN532_SCK  (2)
@@ -48,6 +49,11 @@ products from Adafruit!
 // to the IRQ and reset lines.  Use the values below (2, 3) for the shield!
 #define PN532_IRQ   (2)
 #define PN532_RESET (3)  // Not connected by default on the NFC Shield
+
+#define SP2_RX 10
+#define SP2_TX 11
+
+SoftwareSerial Serial2 (SP2_RX, SP2_TX);
 
 // Uncomment just _one_ line below depending on how your breakout or shield
 // is connected to the Arduino:
@@ -64,10 +70,19 @@ Adafruit_PN532 nfc(PN532_SCK, PN532_MISO, PN532_MOSI, PN532_SS);
 // Or use this line for a breakout or shield with an I2C connection:
 //Adafruit_PN532 nfc(PN532_IRQ, PN532_RESET);
 
+String location1 = "Pa is at home";
+String location2 = "Pa has just left the HDB Flat";
+String location3 = "Pa is at Jurong East market";
+String location4 = "Pa has just boarded bus 54 at Jurong East Swimming Complex";
+String location[4] = {location1, location2, location3, location4};
+int counter = 0;
+
 void setup(void) {
   pinMode(A0,OUTPUT);
   pinMode(A1,OUTPUT);
   Serial.begin(115200);
+  Serial2.begin(115200);
+  SPI.begin();
   Serial.println("Hello!");
 
   nfc.begin();
@@ -125,7 +140,11 @@ void loop(void) {
     nfc.PrintHex(uid, uidLength);
     datatwo[0] = uid[0];
     Serial.println("");
-    
+
+    Serial2.println(location[counter % 4]);
+    Serial.print("Send successful! ");
+    Serial.println(counter);
+    counter++;
     
     if (uidLength == 4)
     {
