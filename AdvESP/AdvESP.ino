@@ -81,6 +81,7 @@ void setup() {
   pinMode(D5, INPUT); //Red Scanner for two
   pinMode(D1,OUTPUT);
   pinMode(D8,OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(D8, HIGH);
   Serial.begin(115200);
   Serial2.begin(115200);
@@ -101,6 +102,11 @@ void setup() {
     delay(500);
   }
 
+  //If successfully connected to WIFI
+  digitalWrite(LED_BUILTIN,HIGH);
+  delay(5000);
+  digitalWrite(LED_BUILTIN, LOW);
+
   Serial.println("");
   Serial.println("WiFi connected");
   Serial.print("IP address: ");
@@ -113,6 +119,7 @@ void setup() {
 }
 
 void loop() {
+//  Serial.println("imalive");
 // This is for Telegram Bot. 
 //  if( digitalRead(D3) == HIGH && onealert == 0){
 //  digitalWrite( D1, HIGH);

@@ -453,6 +453,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }
 
                 System.out.println("afterback" + currentId);
+                
 
 //                Intent intent = new Intent(context, MapsActivity.class);
 //                context.startActivity(intent);
@@ -565,7 +566,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 patient_marker.setSnippet(address);
                 builder.include(patient_marker.getPosition());
                 //Modify this to include more markers in future
-                arrayMarker.add(2, patient_marker);
+                arrayMarker.add(3, patient_marker);
                 textView.append("\n\n"+locationArray[counterLocation] + " at " + gmtTime);
             }
 
