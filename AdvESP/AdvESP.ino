@@ -119,7 +119,7 @@ void setup() {
 }
 
 void loop() {
-//  Serial.println("imalive");
+//  Serial.println("ima``live");
 // This is for Telegram Bot. 
 //  if( digitalRead(D3) == HIGH && onealert == 0){
 //  digitalWrite( D1, HIGH);

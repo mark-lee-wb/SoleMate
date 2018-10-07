@@ -453,7 +453,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }
 
                 System.out.println("afterback" + currentId);
-                
+
 
 //                Intent intent = new Intent(context, MapsActivity.class);
 //                context.startActivity(intent);
